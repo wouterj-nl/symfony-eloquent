@@ -1,0 +1,4 @@
+wouterj_eloquent:
+    driver: '%env(DB_CONNECTION)%'
+    database: '%env(resolve:DB_DATABASE)%'
+    eloquent: true

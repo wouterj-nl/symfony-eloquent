@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+        <style>
+        body {
+            background:#eeeeee;
+            font-family:sans-serif;
+            padding:20px;
+            max-width:1000px;
+            margin:0 auto;
+        }
+        section {
+            background:#ffffff;
+            margin-top:20px;
+            border-radius:15px;
+            padding:10px 20px;
+        }
+        h1 { margin-top:0; }
+        table { min-width:100%; }
+        tr:nth-child(even) { background:#f8f8f8; }
+        th { text-align:left;border-bottom:5px solid #cc3333; }
+        td { padding:2px 5px;vertical-align:top; }
+        </style>
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

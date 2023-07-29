@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All talks{% endblock %}
+
+{% block body %}
+<section id="accepted">
+    <h1>Accepted talks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Abstract</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for talk in accepted_talks %}
+            <tr>
+                <td>{{ talk.title }}</td>
+                <td>{{ talk.author }}</td>
+                <td>{{ talk.abstract }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section id="proposed">
+    <h1>Talk proposals</h1>
+    {% if proposed_talks is not empty %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Abstract</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for talk in proposed_talks %}
+            <tr>
+                <td>{{ talk.title }}</td>
+                <td>{{ talk.author }}</td>
+                <td>{{ talk.abstract }}</td>
+                <td>{{ talk.proposal_notes }}</td>
+                <td>
+                    <form action="{{ path('talk_accept', { id: talk.id }) }}" method="POST">
+                        <input type="submit" value="Accept">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <i>All talks have been accepted!</i>
+    {% endif %}
+</section>
+{% endblock %}
