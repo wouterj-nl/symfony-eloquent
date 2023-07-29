@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->string('author');
+            $table->boolean('accepted');
+            $table->text('abstract');
+            $table->text('proposal_notes');
         });
     }
 
